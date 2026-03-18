@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply min-h-screen overflow-x-hidden;
+  }
+
+  ::selection {
+    @apply bg-surface-900 text-white;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-surface-900/70 backdrop-blur-xl border border-white/10;
+  }
+
+  .bento-card {
+    @apply relative overflow-hidden rounded-bento-lg bg-white shadow-bento
+           transition-all duration-300 ease-out
+           hover:shadow-bento-hover hover:-translate-y-0.5;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
