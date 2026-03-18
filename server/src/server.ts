@@ -6,26 +6,15 @@ import appsRouter from "./routes/apps";
 const app = express();
 const PORT = Number(process.env.PORT) || 3001;
 
-// Manual CORS headers - highest priority
-app.use((req, res, next) => {
-  const origin = req.headers.origin || "*";
-  res.header("Access-Control-Allow-Origin", origin);
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
-  
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
-  }
-  
-  next();
-});
-
-// Additional CORS middleware
+// CORS Configuration
 app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  credentials: false,
+  origin: (origin, callback) => {
+    // Allow all origins in production
+    callback(null, true);
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
   optionsSuccessStatus: 200
 }));
 
