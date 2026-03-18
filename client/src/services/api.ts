@@ -11,6 +11,10 @@ async function request<T>(
     ...options,
   });
 
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+  }
+
   const json = await res.json();
 
   if (!json.success) {

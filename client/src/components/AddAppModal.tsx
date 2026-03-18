@@ -63,14 +63,14 @@ export function AddAppModal({ open, onClose, onAdd }: AddAppModalProps) {
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
             className="fixed inset-x-4 top-[20%] z-50 mx-auto max-w-md
-              rounded-bento-lg bg-white p-8 shadow-glass sm:inset-x-auto"
+              rounded-bento-lg bg-white dark:bg-surface-800 p-8 shadow-glass sm:inset-x-auto"
           >
             <div className="mb-6 flex items-center justify-between">
-              <h2 className="text-lg font-semibold">Add Application</h2>
+              <h2 className="text-lg font-semibold text-surface-900 dark:text-surface-50">Add Application</h2>
               <button
                 onClick={onClose}
                 className="flex h-8 w-8 items-center justify-center rounded-xl
-                  text-surface-400 transition-colors hover:bg-surface-100"
+                  text-surface-400 dark:text-surface-500 transition-colors hover:bg-surface-100 dark:hover:bg-surface-700"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -78,27 +78,27 @@ export function AddAppModal({ open, onClose, onAdd }: AddAppModalProps) {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="mb-1.5 block text-xs font-medium text-surface-500">
+                <label className="mb-1.5 block text-xs font-medium text-surface-500 dark:text-surface-400">
                   URL *
                 </label>
                 <div className="relative">
-                  <LinkIcon className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-surface-300" />
+                  <LinkIcon className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-surface-300 dark:text-surface-600" />
                   <input
                     type="url"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     placeholder="https://app.example.com"
                     required
-                    className="w-full rounded-2xl border border-surface-200 bg-surface-50
-                      py-3 pl-10 pr-4 text-sm outline-none transition-all
-                      placeholder:text-surface-300 focus:border-surface-400 focus:ring-2
-                      focus:ring-surface-100"
+                    className="w-full rounded-2xl border border-surface-200 dark:border-surface-700 bg-surface-50 dark:bg-surface-900
+                      py-3 pl-10 pr-4 text-sm text-surface-900 dark:text-surface-50 outline-none transition-all
+                      placeholder:text-surface-300 dark:placeholder:text-surface-600 focus:border-surface-400 dark:focus:border-surface-600 focus:ring-2
+                      focus:ring-surface-100 dark:focus:ring-surface-700"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="mb-1.5 block text-xs font-medium text-surface-500">
+                <label className="mb-1.5 block text-xs font-medium text-surface-500 dark:text-surface-400">
                   Name (auto-detected if empty)
                 </label>
                 <input
@@ -106,15 +106,15 @@ export function AddAppModal({ open, onClose, onAdd }: AddAppModalProps) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="My Application"
-                  className="w-full rounded-2xl border border-surface-200 bg-surface-50
-                    py-3 px-4 text-sm outline-none transition-all
-                    placeholder:text-surface-300 focus:border-surface-400 focus:ring-2
-                    focus:ring-surface-100"
+                  className="w-full rounded-2xl border border-surface-200 dark:border-surface-700 bg-surface-50 dark:bg-surface-900
+                    py-3 px-4 text-sm text-surface-900 dark:text-surface-50 outline-none transition-all
+                    placeholder:text-surface-300 dark:placeholder:text-surface-600 focus:border-surface-400 dark:focus:border-surface-600 focus:ring-2
+                    focus:ring-surface-100 dark:focus:ring-surface-700"
                 />
               </div>
 
               <div>
-                <label className="mb-1.5 block text-xs font-medium text-surface-500">
+                <label className="mb-1.5 block text-xs font-medium text-surface-500 dark:text-surface-400">
                   Category
                 </label>
                 <input
@@ -122,10 +122,10 @@ export function AddAppModal({ open, onClose, onAdd }: AddAppModalProps) {
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                   placeholder="Productivity, Communication, Tools..."
-                  className="w-full rounded-2xl border border-surface-200 bg-surface-50
-                    py-3 px-4 text-sm outline-none transition-all
-                    placeholder:text-surface-300 focus:border-surface-400 focus:ring-2
-                    focus:ring-surface-100"
+                  className="w-full rounded-2xl border border-surface-200 dark:border-surface-700 bg-surface-50 dark:bg-surface-900
+                    py-3 px-4 text-sm text-surface-900 dark:text-surface-50 outline-none transition-all
+                    placeholder:text-surface-300 dark:placeholder:text-surface-600 focus:border-surface-400 dark:focus:border-surface-600 focus:ring-2
+                    focus:ring-surface-100 dark:focus:ring-surface-700"
                 />
               </div>
 
@@ -133,7 +133,7 @@ export function AddAppModal({ open, onClose, onAdd }: AddAppModalProps) {
                 <motion.p
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-xs text-red-500"
+                  className="text-xs text-red-500 dark:text-red-400"
                 >
                   {error}
                 </motion.p>
@@ -143,8 +143,8 @@ export function AddAppModal({ open, onClose, onAdd }: AddAppModalProps) {
                 type="submit"
                 disabled={loading || !url}
                 className="flex w-full items-center justify-center gap-2 rounded-2xl
-                  bg-surface-900 py-3 text-sm font-medium text-white transition-all
-                  hover:bg-surface-800 disabled:cursor-not-allowed disabled:opacity-50"
+                  bg-surface-900 dark:bg-surface-700 py-3 text-sm font-medium text-white transition-all
+                  hover:bg-surface-800 dark:hover:bg-surface-600 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {loading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />

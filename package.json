@@ -1,0 +1,16 @@
+{
+  "name": "officehub",
+  "version": "1.0.0",
+  "description": "A minimalist, self-hosted productivity dashboard",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "client": "pnpm --filter client dev",
+    "server": "pnpm --filter server dev",
+    "build": "pnpm -r build",
+    "build:client": "pnpm --filter client build",
+    "build:server": "pnpm --filter server build",
+    "start": "pnpm --filter server start",
+    "lint": "pnpm -r lint"
+  }
+}
