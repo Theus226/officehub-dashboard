@@ -1,0 +1,7 @@
+[build]
+builder = "nixpacks"
+buildCommand = "pnpm install && pnpm --filter server build"
+
+[deploy]
+startCommand = "cd server && node dist/server.js"
+restartPolicyType = "always"
