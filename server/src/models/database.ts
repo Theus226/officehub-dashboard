@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
-import type { App } from "../../shared/types";
+import type { App } from "../types";
 
 const DB_PATH = join(__dirname, "../../data/apps.json");
 

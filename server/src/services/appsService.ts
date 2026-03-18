@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import * as db from "../models/database";
 import { discoverSiteMetadata } from "./faviconService";
-import type { App, CreateAppRequest, UpdateAppRequest } from "../../../shared/types";
+import type { App, CreateAppRequest, UpdateAppRequest } from "../types";
 
 export async function createApp(request: CreateAppRequest): Promise<App> {
   const metadata = await discoverSiteMetadata(request.url);
