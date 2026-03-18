@@ -1,2 +1,3 @@
-web: pnpm run build:server && cd server && node dist/server.js
+web: bash build.sh && cd server && node dist/server.js
+
 
