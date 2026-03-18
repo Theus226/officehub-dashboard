@@ -6,7 +6,16 @@ import appsRouter from "./routes/apps";
 const app = express();
 const PORT = Number(process.env.PORT) || 3001;
 
-app.use(cors({ origin: true, credentials: true }));
+// Configure CORS to accept requests from anywhere
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow any origin
+    callback(null, true);
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
+  optionsSuccessStatus: 200
+}));
 app.use(express.json());
 
 app.use("/api/apps", appsRouter);
