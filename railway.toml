@@ -1,7 +1,5 @@
 [build]
 builder = "nixpacks"
-buildCommand = "pnpm install && cd server && npx tsc"
 
 [deploy]
-startCommand = "node server/dist/server.js"
 restartPolicyType = "always"
