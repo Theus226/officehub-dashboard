@@ -5,11 +5,14 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Inter"', '"Geist"', "system-ui", "sans-serif"],
+        sans: ['"Inter"', '"Geist Sans"', "system-ui", "sans-serif"],
+      },
+      letterSpacing: {
+        tightest: "-0.04em",
       },
       borderRadius: {
-        bento: "24px",
-        "bento-lg": "32px",
+        bento: "1.5rem",
+        "bento-lg": "2rem",
       },
       colors: {
         surface: {
